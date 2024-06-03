@@ -1,7 +1,11 @@
 package main
 
-import "github.com/federicotorres233/gokeys/cmd"
+import (
+	"github.com/federicotorres233/gokeys/cmd"
+	"github.com/federicotorres233/gokeys/internal/db"
+)
 
 func main() {
+	db.SetDB()
 	cmd.Execute()
 }

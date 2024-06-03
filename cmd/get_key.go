@@ -31,7 +31,7 @@ func init() {
   rootCmd.AddCommand(getCmd)
 
   // Set up flags
-  getCmd.Flags().StringVarP(&getWebsite, "website", "s", "", "Website [required]")
+  getCmd.Flags().StringVarP(&getWebsite, "website", "w", "", "Website [required]")
   getCmd.Flags().StringVarP(&getUsername, "username", "u", "", "Username [required]")
 
   // Mark required flags

@@ -1,13 +1,14 @@
-package cmd
+package cli
 
 import (
-  "fmt"
-  "github.com/federicotorres233/gokeys/internal/manager"
-  "github.com/spf13/cobra"
+	"fmt"
+
+	"github.com/federicotorres233/gokeys/internal/manager"
+	"github.com/spf13/cobra"
 )
 
 var (
-  getWebsite     string
+  getWebsite  string
   getUsername string
 )
 

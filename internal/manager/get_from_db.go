@@ -20,7 +20,7 @@ func (pm *PasswordManager) GetPassword(website, username string) (string, error)
 	defer database.Close()
 
 	// Get the id depending on the site
-	record, err := db.QueryByWebsite(database, website)
+	record, err := db.GetRecordByWebsite(database, website)
 	if err != nil {
 		return "", err
 	}

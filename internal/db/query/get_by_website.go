@@ -1,10 +1,10 @@
-package db
+package query
 
 import (
 	"database/sql"
 	"log"
 
-	"github.com/federicotorres233/gokeys/types"
+	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 

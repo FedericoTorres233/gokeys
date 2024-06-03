@@ -1,10 +1,10 @@
-package cmd
+package cli
 
 import (
 	"fmt"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
-	"github.com/federicotorres233/gokeys/types"
+	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/spf13/cobra"
 )
 

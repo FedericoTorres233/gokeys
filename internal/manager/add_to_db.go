@@ -3,8 +3,8 @@ package manager
 import (
 	"database/sql"
 
-	"github.com/federicotorres233/gokeys/internal/db"
-	"github.com/federicotorres233/gokeys/types"
+	"github.com/federicotorres233/gokeys/internal/db/query"
+	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -19,7 +19,7 @@ func (pm *PasswordManager) AddPassword(record types.Record) error {
 	defer database.Close()
 	
 	// Get the id depending on the site
-	err = db.AddRecord(database, record)
+	err = query.AddRecord(database, record)
 	if err != nil {
 		return err
 	}

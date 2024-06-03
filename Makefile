@@ -1,5 +1,5 @@
 build:
-	go build -o bin/gokeys main.go
+	go build -o bin/gokeys cmd/main.go
 
 run: build
 	./bin/gokeys

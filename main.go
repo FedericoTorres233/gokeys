@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	db.SetDB()
+	db.SetupDB()
 	cmd.Execute()
 }

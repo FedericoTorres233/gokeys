@@ -1,4 +1,4 @@
-package db
+package manager
 
 // AddPassword adds a password for a specific site and username
 func (pm *PasswordManager) AddPassword(site, username, password string) {

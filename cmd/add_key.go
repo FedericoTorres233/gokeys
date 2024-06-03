@@ -2,7 +2,7 @@ package cmd
 
 import (
   "fmt"
-  "github.com/federicotorres233/gokeys/internal/db"
+  "github.com/federicotorres233/gokeys/internal/manager"
   "github.com/spf13/cobra"
 )
 
@@ -17,7 +17,7 @@ var addCmd = &cobra.Command{
   Use:   "add",
   Short: "Add a new password",
   Run: func(cmd *cobra.Command, args []string) {
-    pm := db.NewPasswordManager()
+    pm := manager.NewPasswordManager()
     pm.AddPassword(site, username, password)
     fmt.Printf("Password for %s at %s added successfully!\n", username, site)
   },

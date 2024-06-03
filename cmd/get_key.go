@@ -2,7 +2,7 @@ package cmd
 
 import (
   "fmt"
-  "github.com/federicotorres233/gokeys/internal/db"
+  "github.com/federicotorres233/gokeys/internal/manager"
   "github.com/spf13/cobra"
 )
 
@@ -16,7 +16,7 @@ var getCmd = &cobra.Command{
   Use:   "get",
   Short: "Get a password",
   Run: func(cmd *cobra.Command, args []string) {
-    pm := db.NewPasswordManager()
+    pm := manager.NewPasswordManager()
     password, err := pm.GetPassword(getWebsite, getUsername)
     if err != nil {
       fmt.Println(err)

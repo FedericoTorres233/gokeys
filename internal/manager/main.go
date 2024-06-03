@@ -1,4 +1,4 @@
-package db
+package manager
 
 // global variable to simulate persistent storage for now
 var passwordStore = make(map[string]map[string]string)

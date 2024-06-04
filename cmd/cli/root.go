@@ -11,16 +11,16 @@ import (
 )
 
 var (
-	record types.Record
+	record       types.Record
 	setClipboard bool
-	installed bool
+	installed    bool
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gokeys",
 	Short: "Simple password/key manager written in Go",
-	Long:  `Simple password/key manager written in Go. Your credentials are stored using post-quantum encryption`,
+	Long:  `Simple password/key manager written in Go. To start using it, first run the command using the --install flag, which creates the key database`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if installed {
 			fmt.Println("Performing installation of GoKeys...")
@@ -51,5 +51,5 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolVarP(&installed, "install", "i", false, "Install database")
+	rootCmd.Flags().BoolVarP(&installed, "install", "i", false, "install database")
 }

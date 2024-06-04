@@ -13,24 +13,23 @@ import (
 
 // GetPassword retrieves a password for a specific site and username
 func (pm *PasswordManager) GetPassword(record *types.Record) error {
-	tmpdir := "/tmp/gokeys.decrypted.db"
 
 	// Decrypt database
-	err := utils.DbDecrypt(tmpdir)
+	err := utils.DbDecrypt(pm.tmpdb)
 	if err != nil {
 		return err
 	}
 
 	// Open a connection to the SQLite database
-	database, err := sql.Open("sqlite3", tmpdir)
+	database, err := sql.Open("sqlite3", pm.tmpdb)
 	if err != nil {
 		return err
 	}
-	defer os.Remove(tmpdir)
+	defer os.Remove(pm.tmpdb)
 	defer database.Close()
 
 	// Open a connection to the SQLite database
-	database, err = sql.Open("sqlite3", tmpdir)
+	database, err = sql.Open("sqlite3", pm.tmpdb)
 	if err != nil {
 		return err
 	}

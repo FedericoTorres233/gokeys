@@ -14,8 +14,11 @@ var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "Add a new password",
 	Run: func(cmd *cobra.Command, args []string) {
-		// Password manager instance
-		pm := manager.NewPasswordManager()
+		// Get default configs
+		def := utils.LoadConfigs()
+
+		// Get password from password manager
+		pm := manager.NewPasswordManager(def["temporary_db"], def["encrypted_db"])
 
 		// Read password from stdin
 		p, err := utils.ReadPassword()

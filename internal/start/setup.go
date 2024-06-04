@@ -9,11 +9,11 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func setupDB(key []byte, tmpdir string, dbdir string) error {
+func setupDB(key []byte, tmpdb string, encdb string) error {
 	// os.Remove("bin/passwd.db")
 
 	// Open a connection to the SQLite database
-	db, err := sql.Open("sqlite3", tmpdir)
+	db, err := sql.Open("sqlite3", tmpdb)
 	if err != nil {
 		return err
 	}
@@ -31,17 +31,17 @@ func setupDB(key []byte, tmpdir string, dbdir string) error {
 		return err
 	}
 
-	log.Println("[INFO] DB set up successfully at", tmpdir)
+	log.Println("[INFO] DB set up successfully at", tmpdb)
 
 	// DB encryption
 	log.Println("[INFO] Encrypting database")
-	err = utils.DbEncrypt(key, dbdir, tmpdir)
+	err = utils.DbEncrypt(key, encdb, tmpdb)
 	if err != nil {
 		return err
 	}
 
 	// Remove temporary DB
-	os.Remove(tmpdir)
+	os.Remove(tmpdb)
 
 	return nil
 }

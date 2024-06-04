@@ -14,8 +14,11 @@ var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get a password",
 	Run: func(cmd *cobra.Command, args []string) {
+		// Get default configs
+		def := utils.LoadConfigs()
+
 		// Get password from password manager
-		pm := manager.NewPasswordManager()
+		pm := manager.NewPasswordManager(def["temporary_db"], def["encrypted_db"])
 		err := pm.GetPassword(&record)
 		if err != nil {
 			log.Println("[ERROR] ", err)

@@ -7,8 +7,8 @@ import (
 	"os"
 )
 
-func DbDecrypt(tmpdir string) error {
-	outDir := tmpdir
+func DbDecrypt(tmpdb string) error {
+	outDir := tmpdb
 
 	cred, err := GetAllCredentials()
 	if err != nil {
@@ -20,7 +20,7 @@ func DbDecrypt(tmpdir string) error {
 		return err
 	}
 
-	log.Println("[INFO] Database decrypted and stored at ", tmpdir)
+	log.Println("[INFO] Database decrypted and stored at ", tmpdb)
 	return nil
 }
 

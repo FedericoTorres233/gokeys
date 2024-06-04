@@ -7,8 +7,6 @@ import (
 )
 
 func Install() {
-	dbdir := "bin/passwd.db"
-	tmpdir := "/tmp/gokeys.db"
 
 	// Read master password
 	master, err := utils.ReadPassword()
@@ -22,8 +20,9 @@ func Install() {
 		log.Println("[ERROR] ", err)
 	}
 
-	// Set up DB
-	err = setupDB(key, tmpdir, dbdir)
+	// Set up DB & get default configs
+	def := utils.LoadConfigs()
+	err = setupDB(key, def["temporary_db"], def["encrypted_db"])
 	if err != nil {
 		log.Println("[ERROR] ", err)
 	}

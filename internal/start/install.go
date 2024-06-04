@@ -25,4 +25,6 @@ func Install() {
 		log.Println("ERROR: ", err)
 	}
 
+	// Encrypt db
+	utils.DbEncrypt(master, dbdir)
 }

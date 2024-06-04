@@ -24,7 +24,6 @@
 - Organize sensitive files and change permissions
 - Encrypt database
 - Concurrency for faster performance
-- Post quantum encryption
 - Add more options
 - Tests
 - Reorganise folders and files

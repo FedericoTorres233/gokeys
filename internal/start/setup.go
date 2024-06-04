@@ -37,7 +37,7 @@ func setupDB(key []byte, tmpdir string, dbdir string) error {
 	log.Println("[INFO] Encrypting database")
 	err = utils.DbEncrypt(key, dbdir, tmpdir)
 	if err != nil {
-		log.Println("[ERROR] ", err)
+		return err
 	}
 
 	// Remove temporary DB

@@ -5,9 +5,7 @@ import (
 	"github.com/federicotorres233/gokeys/pkg/utils"
 )
 
-const logdir string = "bin/logs"
-
 func main() {
-	utils.SetupLogger(logdir)
+	utils.SetupLogger()
 	cli.Execute()
 }

@@ -6,29 +6,30 @@ import (
 	"database/sql"
 
 	"github.com/federicotorres233/gokeys/internal/db"
+	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 // GetPassword retrieves a password for a specific site and username
-func (pm *PasswordManager) GetPassword(website, username string) (string, error) {
+func (pm *PasswordManager) GetPassword(record *types.Record) error {
 
 	// Open a connection to the SQLite database
 	database, err := sql.Open("sqlite3", "bin/passwd.db")
 	if err != nil {
-		return "", err
+		return err
 	}
 	defer database.Close()
 
-	// Get the id depending on the site
-	record, err := db.GetRecordByWebsite(database, website)
+	// Get the id depending on the site (passing the pointer to record)
+	err = db.GetRecordByWebsite(database, record)
 	if err != nil {
-		return "", err
+		return err
 	}
 
 	// Check if record is not empty
 	if record.Password != "" {
-		return record.Password, nil
+		return nil
 	}
 
-	return "", errors.New("sorry! password not found")
+	return errors.New("sorry! password not found")
 }

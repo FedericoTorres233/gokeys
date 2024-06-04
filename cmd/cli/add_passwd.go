@@ -5,11 +5,8 @@ import (
 	"log"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
-	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/spf13/cobra"
 )
-
-var record types.Record
 
 // addCmd represents the add command
 var addCmd = &cobra.Command{

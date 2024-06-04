@@ -9,12 +9,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	getWebsite   string
-	getUsername  string
-	setClipboard bool
-)
-
 // getCmd represents the get command
 var getCmd = &cobra.Command{
 	Use:   "get",
@@ -23,7 +17,7 @@ var getCmd = &cobra.Command{
 
 		// Get password from password manager
 		pm := manager.NewPasswordManager()
-		password, err := pm.GetPassword(getWebsite, getUsername)
+		err := pm.GetPassword(&record)
 		if err != nil {
 			log.Println("ERROR: ", err)
 			return
@@ -32,16 +26,16 @@ var getCmd = &cobra.Command{
 		// Copy to clipboard
 		if setClipboard {
 			fmt.Println("Copied to clipboard!")
-			err := utils.SetClip(password)
+			err := utils.SetClip(record.Password)
 			log.Println("ERROR: Could not set clipboard.", err)
 		}
 
 		// Output password
-		if getUsername == "" {
-			fmt.Printf("Password for website %s: %s\n", getWebsite, password)
+		if record.Username == "" {
+			fmt.Printf("Password for website %s: %s\n", record.Website, record.Password)
 			return
 		}
-		fmt.Printf("Password for %s at %s: %s\n", getUsername, getWebsite, password)
+		fmt.Printf("Password for %s at %s: %s\n", record.Username, record.Website, record.Password)
 
 	},
 }
@@ -51,8 +45,8 @@ func init() {
 	rootCmd.AddCommand(getCmd)
 
 	// Set up flags
-	getCmd.Flags().StringVarP(&getWebsite, "website", "w", "", "Website [required]")
-	getCmd.Flags().StringVarP(&getUsername, "username", "u", "", "Username")
+	getCmd.Flags().StringVarP(&record.Website, "website", "w", "", "Website [required]")
+	getCmd.Flags().StringVarP(&record.Username, "username", "u", "", "Username")
 	getCmd.Flags().BoolVarP(&setClipboard, "clipboard", "c", false, "Copy to clipboard")
 
 	// Mark required flags

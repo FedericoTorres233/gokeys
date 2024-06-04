@@ -11,6 +11,6 @@ func AddRecord(db *sql.DB, record types.Record) error {
 	return query.AddRecord(db, record)
 }
 
-func GetRecordByWebsite(db *sql.DB, website string) (types.Record, error) {
-	return query.QueryByWebsite(db, website)
+func GetRecordByWebsite(db *sql.DB, record *types.Record) error {
+	return query.QueryByWebsite(db, record)
 }

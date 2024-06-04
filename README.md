@@ -107,5 +107,5 @@ func main() {
 If you want to say **Thank You** and/or support the project:
 
 1. Add a [GitHub Star](https://github.com/federicotorres233/gokeys/stargazers) to the project.
-2. Submitting a [pull request](https://github.com/FedericoTorres233/gokeys/pulls) to add a new feature
-3. Creating an [issue](https://github.com/FedericoTorres233/gokeys/issues) if you find any bug
+2. Submit a [pull request](https://github.com/FedericoTorres233/gokeys/pulls) to add a new feature
+3. Create an [issue](https://github.com/FedericoTorres233/gokeys/issues) if you find any bug

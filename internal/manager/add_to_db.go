@@ -12,7 +12,6 @@ import (
 
 // AddPassword adds a password for a specific site and username
 func (pm *PasswordManager) AddPassword(record *types.Record) error {
-
 	tmpdir := "/tmp/gokeys.decrypted.db"
 	dbdir := "bin/passwd.db"
 

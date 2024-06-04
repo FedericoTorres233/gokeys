@@ -1,10 +1,9 @@
 package manager
 
 import (
+	"database/sql"
 	"errors"
 	"os"
-
-	"database/sql"
 
 	"github.com/federicotorres233/gokeys/internal/db"
 	"github.com/federicotorres233/gokeys/internal/types"
@@ -14,7 +13,6 @@ import (
 
 // GetPassword retrieves a password for a specific site and username
 func (pm *PasswordManager) GetPassword(record *types.Record) error {
-
 	tmpdir := "/tmp/gokeys.decrypted.db"
 
 	// Decrypt database

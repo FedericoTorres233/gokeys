@@ -43,7 +43,6 @@ func Execute() {
 }
 
 func init() {
-
 	// Define flags and configs. Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 

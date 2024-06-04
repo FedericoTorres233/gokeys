@@ -27,5 +27,4 @@ func Install() {
 	if err != nil {
 		log.Println("[ERROR] ", err)
 	}
-
 }

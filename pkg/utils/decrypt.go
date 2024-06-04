@@ -8,7 +8,6 @@ import (
 )
 
 func DbDecrypt(tmpdir string) error {
-
 	outDir := tmpdir
 
 	cred, err := GetAllCredentials()
@@ -26,7 +25,6 @@ func DbDecrypt(tmpdir string) error {
 }
 
 func decryptFile(key []byte, encryptedDB []byte, outFile string) error {
-
 	nonceSize := 12 // This is the GCM nonce size
 	nonce, file := encryptedDB[:nonceSize], encryptedDB[nonceSize:]
 
@@ -45,6 +43,6 @@ func decryptFile(key []byte, encryptedDB []byte, outFile string) error {
 		return err
 	}
 
-	err = os.WriteFile(outFile, decrypted, 0644)
+	err = os.WriteFile(outFile, decrypted, 0o644)
 	return err
 }

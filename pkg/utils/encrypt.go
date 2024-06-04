@@ -36,7 +36,7 @@ func encryptFile(key []byte, inFile string, outFile string) error {
 	combined := append(nonce, ciphertext...)
 	encoded := base64.StdEncoding.EncodeToString(combined)
 
-	err = os.WriteFile(outFile, []byte(encoded), 0644)
+	err = os.WriteFile(outFile, []byte(encoded), 0o644)
 	if err != nil {
 		return err
 	}
@@ -45,7 +45,6 @@ func encryptFile(key []byte, inFile string, outFile string) error {
 }
 
 func DbEncrypt(key []byte, dbdir string, tmpdir string) error {
-
 	err := encryptFile(key, tmpdir, dbdir)
 	if err != nil {
 		return err

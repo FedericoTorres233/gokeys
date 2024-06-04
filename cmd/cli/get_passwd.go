@@ -14,7 +14,6 @@ var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Get a password",
 	Run: func(cmd *cobra.Command, args []string) {
-
 		// Get password from password manager
 		pm := manager.NewPasswordManager()
 		err := pm.GetPassword(&record)
@@ -36,7 +35,6 @@ var getCmd = &cobra.Command{
 			return
 		}
 		fmt.Printf("Password for %s at %s: %s\n", record.Username, record.Website, record.Password)
-
 	},
 }
 

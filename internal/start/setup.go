@@ -10,7 +10,7 @@ import (
 )
 
 func setupDB(key []byte, tmpdir string, dbdir string) error {
-	//os.Remove("bin/passwd.db")
+	// os.Remove("bin/passwd.db")
 
 	// Open a connection to the SQLite database
 	db, err := sql.Open("sqlite3", tmpdir)
@@ -43,5 +43,5 @@ func setupDB(key []byte, tmpdir string, dbdir string) error {
 	// Remove temporary DB
 	os.Remove(tmpdir)
 
-    return nil
+	return nil
 }

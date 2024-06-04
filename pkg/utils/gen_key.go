@@ -21,14 +21,14 @@ func GenerateKey(master string) ([]byte, error) {
 
 	// Save salt
 	salt_encoded := base64.StdEncoding.EncodeToString(salt)
-	err = os.WriteFile("bin/salt", []byte(salt_encoded), 0644)
+	err = os.WriteFile("bin/salt", []byte(salt_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}
 
 	// Save key
 	key_encoded := base64.StdEncoding.EncodeToString(key)
-	err = os.WriteFile("bin/key", []byte(key_encoded), 0644)
+	err = os.WriteFile("bin/key", []byte(key_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}

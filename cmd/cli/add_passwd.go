@@ -24,7 +24,13 @@ var addCmd = &cobra.Command{
 		}
 
 		log.Println("INFO: Added new record to database")
+
+		if record.Username == ""{
+			fmt.Printf("Password for website %s added successfully!\n", record.Website)
+			return
+		  }
 		fmt.Printf("Password for %s at %s added successfully!\n", record.Username, record.Website)
+
 	},
 }
 
@@ -33,12 +39,11 @@ func init() {
 	rootCmd.AddCommand(addCmd)
 
 	// Set up flags
-	addCmd.Flags().StringVarP(&record.Website, "website", "w", "", "Site [required]")
-	addCmd.Flags().StringVarP(&record.Username, "username", "u", "", "Username [required]")
+	addCmd.Flags().StringVarP(&record.Website, "website", "w", "", "Website [required]")
 	addCmd.Flags().StringVarP(&record.Password, "password", "p", "", "Password [required]")
+	addCmd.Flags().StringVarP(&record.Username, "username", "u", "", "Username")
 
 	// Mark required flags
-	addCmd.MarkFlagRequired("site")
-	addCmd.MarkFlagRequired("username")
+	addCmd.MarkFlagRequired("website")
 	addCmd.MarkFlagRequired("password")
 }

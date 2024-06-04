@@ -29,10 +29,19 @@ func Install() {
 	// Generate key & salt
 	key, err := utils.GenerateKey(master)
 	if err != nil {
-		log.Println(err)
+		log.Println("[ERROR] ", err)
 	}
 
 	// Encrypt db
-	utils.DbEncrypt(key, dbdir)
-	utils.DbEncrypt(master, dbdir)
+	err = utils.DbEncrypt(key, dbdir)
+	if err != nil {
+		log.Println("[ERROR] ", err)
+	}
+
+	// Decrypt db
+	//err = utils.DbDecrypt()
+	//if err != nil {
+	//	log.Println("[ERROR] ", err)
+	//}
+
 }

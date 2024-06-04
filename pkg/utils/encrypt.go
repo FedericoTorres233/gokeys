@@ -44,16 +44,16 @@ func encryptFile(key []byte, inFile string, outFile string) error {
 	return nil
 }
 
-func DbEncrypt(key []byte, dbdir string) {
+func DbEncrypt(key []byte, dbdir string) error {
 
 	inFile := dbdir
 	outFile := dbdir + ".encrypted" // This file won't be usable by the database
 
 	err := encryptFile(key, inFile, outFile)
 	if err != nil {
-		log.Println(err)
-		return
+		return err
 	}
 
 	log.Println("[INFO] Database encrypted using key: ", key)
+	return nil
 }

@@ -19,7 +19,7 @@
 - ~~Remove logs && log everything to a logfile~~
 - ~~Use SQLite~~
 - ~~Don't echo passwords~~
-- Organize sensitive files
+- Organize sensitive files and change permissions
 - Encrypt database
 - Concurrency for faster performance
 - Post quantum encryption

@@ -44,12 +44,9 @@ func encryptFile(key []byte, inFile string, outFile string) error {
 	return nil
 }
 
-func DbEncrypt(key []byte, dbdir string) error {
+func DbEncrypt(key []byte, dbdir string, tmpdir string) error {
 
-	inFile := dbdir
-	outFile := dbdir + ".encrypted" // This file won't be usable by the database
-
-	err := encryptFile(key, inFile, outFile)
+	err := encryptFile(key, tmpdir, dbdir)
 	if err != nil {
 		return err
 	}

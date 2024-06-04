@@ -57,7 +57,7 @@ func GetKey(a *[]byte) error {
 }
 
 func GetEncryptedDB(a *[]byte) error {
-	db_encrypted, err := os.ReadFile("bin/passwd.db.encrypted")
+	db_encrypted, err := os.ReadFile("bin/passwd.db")
 	if err != nil {
 		return err
 	}

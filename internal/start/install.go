@@ -6,22 +6,12 @@ import (
 	"github.com/federicotorres233/gokeys/pkg/utils"
 )
 
-var (
-	master string
-	dbdir  string
-)
-
 func Install() {
-	dbdir = "bin/passwd.db"
-
-	// Set up DB
-	err := setupDB(dbdir)
-	if err != nil {
-		log.Println("[ERROR] ", err)
-	}
+	dbdir := "bin/passwd.db"
+	tmpdir := "/tmp/db.db"
 
 	// Read master password
-	master, err = utils.ReadPassword()
+	master, err := utils.ReadPassword()
 	if err != nil {
 		log.Println("[ERROR] ", err)
 	}
@@ -32,16 +22,16 @@ func Install() {
 		log.Println("[ERROR] ", err)
 	}
 
-	// Encrypt db
-	err = utils.DbEncrypt(key, dbdir)
+	// Set up DB
+	err = setupDB(key, tmpdir, dbdir)
 	if err != nil {
 		log.Println("[ERROR] ", err)
 	}
 
 	// Decrypt db
-	//err = utils.DbDecrypt()
-	//if err != nil {
-	//	log.Println("[ERROR] ", err)
-	//}
+	err = utils.DbDecrypt()
+	if err != nil {
+		log.Println("[ERROR] ", err)
+	}
 
 }

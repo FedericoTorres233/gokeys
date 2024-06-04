@@ -8,4 +8,7 @@ test:
 	go test -v ./... -count=1
 
 tidy:
-	go mod tidy
+	go mod tidy -v
+
+format:
+	go run mvdan.cc/gofumpt@latest -w -l .

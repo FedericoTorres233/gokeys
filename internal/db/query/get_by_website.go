@@ -2,7 +2,7 @@ package query
 
 import (
 	"database/sql"
-	"log"
+	"fmt"
 
 	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
@@ -21,7 +21,7 @@ func QueryByWebsite(db *sql.DB, website string) (types.Record, error) {
 	}
 	defer rows.Close()
 
-	log.Printf("Results for website: %s\n", website)
+	fmt.Printf("Results for website: %s\n", website)
 	for rows.Next() {
 		err = rows.Scan(&id, &password, &website, &username)
 		if err != nil {

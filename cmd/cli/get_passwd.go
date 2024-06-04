@@ -46,9 +46,9 @@ func init() {
 	rootCmd.AddCommand(getCmd)
 
 	// Set up flags
-	getCmd.Flags().StringVarP(&record.Website, "website", "w", "", "Website [required]")
-	getCmd.Flags().StringVarP(&record.Username, "username", "u", "", "Username")
-	getCmd.Flags().BoolVarP(&setClipboard, "clipboard", "c", false, "Copy to clipboard")
+	getCmd.Flags().StringVarP(&record.Website, "website", "w", "", "website [required]")
+	getCmd.Flags().StringVarP(&record.Username, "username", "u", "", "username")
+	getCmd.Flags().BoolVarP(&setClipboard, "clipboard", "c", false, "copy to clipboard")
 
 	// Mark required flags
 	getCmd.MarkFlagRequired("website")

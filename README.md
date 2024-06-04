@@ -25,6 +25,8 @@
 - Encrypt database
 - Concurrency for faster performance
 - Add more options
+- Get by other options
+- CRUD
 - Tests
 - Reorganise folders and files
 - Select database location

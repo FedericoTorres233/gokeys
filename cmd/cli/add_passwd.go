@@ -50,11 +50,17 @@ func init() {
 	rootCmd.AddCommand(addCmd)
 
 	// Set up flags
-	addCmd.Flags().StringVarP(&record.Website, "website", "w", "", "Website [required]")
+	addCmd.Flags().StringVarP(&record.Website, "website", "w", "", "add website [required]")
 	// addCmd.Flags().StringVarP(&record.Password, "password", "p", "", "Password [required]")
-	addCmd.Flags().StringVarP(&record.Username, "username", "u", "", "Username")
+	addCmd.Flags().StringVarP(&record.Username, "username", "u", "", "add username [required]")
+	addCmd.Flags().StringVarP(&record.Notes, "notes", "o", "", "add notes")
+	addCmd.Flags().StringVarP(&record.Notes, "email", "e", "", "add email")
+	addCmd.Flags().StringVarP(&record.Tag, "tag", "t", "", "add a tag")
+	addCmd.Flags().StringVar(&record.Url, "url", "", "add url")
+	addCmd.Flags().BoolVarP(&record.Status, "status", "s",false, "set status")
+	addCmd.Flags().BoolVar(&record.Favorite, "favorite", false, "set as favorite")
 
 	// Mark required flags
 	addCmd.MarkFlagRequired("website")
-	// addCmd.MarkFlagRequired("password")
+	addCmd.MarkFlagRequired("username")
 }

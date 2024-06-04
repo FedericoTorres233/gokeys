@@ -15,7 +15,7 @@ func (pm *PasswordManager) GetPassword(website, username string) (string, error)
 	// Open a connection to the SQLite database
 	database, err := sql.Open("sqlite3", "bin/passwd.db")
 	if err != nil {
-		panic(err)
+		return "", err
 	}
 	defer database.Close()
 

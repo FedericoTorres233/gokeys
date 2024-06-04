@@ -17,7 +17,7 @@ func QueryByWebsite(db *sql.DB, website string) (types.Record, error) {
 	querySQL := `SELECT id, password, website, username FROM gokeys WHERE website = ?`
 	rows, err := db.Query(querySQL, website)
 	if err != nil {
-		panic(err)
+		return types.Record{}, err
 	}
 	defer rows.Close()
 

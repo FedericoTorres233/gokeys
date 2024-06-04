@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+  "log"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
 	"github.com/spf13/cobra"
@@ -20,7 +21,7 @@ var getCmd = &cobra.Command{
     pm := manager.NewPasswordManager()
     password, err := pm.GetPassword(getWebsite, getUsername)
     if err != nil {
-      fmt.Println(err)
+      log.Println("ERROR: ", err)
       return
     }
     fmt.Printf("Password for %s at %s: %s\n", getUsername, getWebsite, password)

@@ -14,7 +14,7 @@ func SetupDB() {
     // Open a connection to the SQLite database
     db, err := sql.Open("sqlite3", "bin/passwd.db")
     if err != nil {
-        panic(err)
+        log.Println("ERROR: ", err)
     }
     defer db.Close()
 
@@ -27,7 +27,9 @@ func SetupDB() {
     );`
     _, err = db.Exec(createTable)
     if err != nil {
-        log.Println(err)
+        log.Println("ERROR: ", err)
         os.Exit(1)
     }
+
+    log.Println("INFO: setup successfully")
 }

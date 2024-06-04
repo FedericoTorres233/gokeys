@@ -29,6 +29,6 @@ func setupDB(dbdir string) error {
 		return err
 	}
 
-	log.Println("INFO: db set up successfully at", dbdir)
+	log.Println("[INFO] db set up successfully at", dbdir)
     return nil
 }

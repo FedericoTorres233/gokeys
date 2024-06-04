@@ -70,5 +70,5 @@ func DbEncrypt(master string, dbdir string) {
 		return
 	}
 
-	log.Println("INFO: Database encrypted using key: ", key)
+	log.Println("[INFO] Database encrypted using key: ", key)
 }

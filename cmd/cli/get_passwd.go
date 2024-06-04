@@ -19,7 +19,7 @@ var getCmd = &cobra.Command{
 		pm := manager.NewPasswordManager()
 		err := pm.GetPassword(&record)
 		if err != nil {
-			log.Println("ERROR: ", err)
+			log.Println("[ERROR] ", err)
 			return
 		}
 
@@ -27,7 +27,7 @@ var getCmd = &cobra.Command{
 		if setClipboard {
 			fmt.Println("Copied to clipboard!")
 			err := utils.SetClip(record.Password)
-			log.Println("ERROR: Could not set clipboard.", err)
+			log.Println("[ERROR] Could not set clipboard.", err)
 		}
 
 		// Output password

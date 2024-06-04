@@ -21,7 +21,7 @@ var addCmd = &cobra.Command{
 		// Read password from stdin
 		p, err := utils.ReadPassword()
 		if err != nil {
-			log.Println("ERROR: ", err)
+			log.Println("[ERROR] ", err)
 			return
 		}
 		record.Password = p
@@ -29,11 +29,11 @@ var addCmd = &cobra.Command{
 		// Add password to db
 		err = pm.AddPassword(&record)
 		if err != nil {
-			log.Println("ERROR: ", err)
+			log.Println("[ERROR] ", err)
 			return
 		}
 
-		log.Println("INFO: Added new record to database")
+		log.Println("[INFO] Added new record to database")
 
 		if record.Username == ""{
 			fmt.Printf("Password for website %s added successfully!\n", record.Website)

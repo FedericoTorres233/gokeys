@@ -12,3 +12,6 @@ tidy:
 
 format:
 	go run mvdan.cc/gofumpt@latest -w -l .
+
+release: build
+	tar cvf - bin/gokeys | gzip > gokeys.tar.gz

@@ -7,21 +7,21 @@ import (
 	"os"
 )
 
-func DbDecrypt() error {
+func DbDecrypt(tmpdir string) error {
 
-	outFile := "bin/passwd.db.decrypted"
+	outDir := tmpdir
 
 	cred, err := GetAllCredentials()
 	if err != nil {
 		return err
 	}
 
-	err = decryptFile(cred.Key, cred.EncryptedDB, outFile)
+	err = decryptFile(cred.Key, cred.EncryptedDB, outDir)
 	if err != nil {
 		return err
 	}
 
-	log.Println("[INFO] Database decrypted using key: ", cred.Key)
+	log.Println("[INFO] Database decrypted and stored at ", tmpdir)
 	return nil
 }
 

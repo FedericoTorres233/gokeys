@@ -14,7 +14,7 @@ var addCmd = &cobra.Command{
 	Short: "Add a new password",
 	Run: func(cmd *cobra.Command, args []string) {
 		pm := manager.NewPasswordManager()
-		err := pm.AddPassword(record)
+		err := pm.AddPassword(&record)
 		if err != nil {
 			log.Println("ERROR: ", err)
 			return

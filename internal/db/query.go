@@ -7,7 +7,7 @@ import (
 	"github.com/federicotorres233/gokeys/internal/types"
 )
 
-func AddRecord(db *sql.DB, record types.Record) error {
+func AddRecord(db *sql.DB, record *types.Record) error {
 	return query.AddRecord(db, record)
 }
 

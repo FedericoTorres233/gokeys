@@ -9,7 +9,7 @@ import (
 )
 
 // AddPassword adds a password for a specific site and username
-func (pm *PasswordManager) AddPassword(record types.Record) error {
+func (pm *PasswordManager) AddPassword(record *types.Record) error {
 	
 	// Open a connection to the SQLite database
 	database, err := sql.Open("sqlite3", "bin/passwd.db")

@@ -8,10 +8,10 @@ import (
 )
 
 // Function to query and print rows for a specific website
-func AddRecord(db *sql.DB, record types.Record) error {
+func AddRecord(db *sql.DB, record *types.Record) error {
 
 	querySQL := `INSERT INTO gokeys (website, username, password) VALUES (?, ?, ?)`
-	_, err := db.Exec(querySQL, record.Website, record.Username, record.Password)
+	_, err := db.Exec(querySQL, &record.Website, &record.Username, &record.Password)
 	if err != nil {
 		return err
 	}

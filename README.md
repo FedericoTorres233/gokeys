@@ -18,8 +18,8 @@
 - ~~Add -—install~~
 - ~~Remove logs && log everything to a logfile~~
 - ~~Use SQLite~~
-- Remove pass
-- Salted passwords
+- ~~Don't echo passwords~~
+- Encrypt database
 - Concurrency for faster performance
 - Post quantum encryption
 - Add more options

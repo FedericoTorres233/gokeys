@@ -5,6 +5,6 @@ type PasswordManager struct{}
 
 // NewPasswordManager creates a new PasswordManager
 func NewPasswordManager() *PasswordManager {
- pm := PasswordManager{}
+	pm := PasswordManager{}
 	return &pm
 }

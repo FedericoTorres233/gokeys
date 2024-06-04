@@ -11,7 +11,7 @@ func ReadPassword() (string, error) {
 	fmt.Print("Enter the password [does not echo]: ")
 	p, err := term.ReadPassword(0)
 	if err != nil {
-		log.Println("ERROR: ", err)
+		log.Println("[ERROR] ", err)
 		return "", err
 	}
 	fmt.Print("\n")

@@ -19,6 +19,9 @@
 - ~~Remove logs && log everything to a logfile~~
 - ~~Use SQLite~~
 - ~~Don't echo passwords~~
+- Add dockerfile
+- Fancier terminal
+- Organize sensitive files and change permissions
 - Encrypt database
 - Concurrency for faster performance
 - Post quantum encryption

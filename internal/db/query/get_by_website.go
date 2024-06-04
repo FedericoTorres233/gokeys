@@ -18,13 +18,13 @@ func QueryByWebsite(db *sql.DB, record *types.Record) error {
 	}
 	defer rows.Close()
 
-	//fmt.Printf("Results for website: %s\n", record.Website)
+	// fmt.Printf("Results for website: %s\n", record.Website)
 	for rows.Next() {
 		err = rows.Scan(&id, &record.Password, &record.Website, &record.Username)
 		if err != nil {
 			panic(err)
 		}
-		//log.Printf("ID: %d, Password: %s, Website: %s, Username: %s\n", id, password, website, username)
+		// log.Printf("ID: %d, Password: %s, Website: %s, Username: %s\n", id, password, website, username)
 	}
 
 	// Check for errors from iterating over rows

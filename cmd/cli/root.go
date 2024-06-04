@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/federicotorres233/gokeys/internal/db"
+	"github.com/federicotorres233/gokeys/internal/start"
 	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/spf13/cobra"
 )
@@ -24,7 +24,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if installed {
 			fmt.Println("Performing installation of GoKeys...")
-			db.SetupDB()
+			start.Install()
 			return
 		} else {
 			cmd.Help()
@@ -37,13 +37,12 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
-		log.Println("ERROR: ", err)
+		log.Println("[ERROR] ", err)
 		os.Exit(1)
 	}
 }
 
 func init() {
-
 	// Define flags and configs. Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 

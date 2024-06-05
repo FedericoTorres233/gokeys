@@ -36,7 +36,7 @@
 The easiest way to start using GoKeys is to get the latest binary from the github repository.
 
 ```bash
-wget https://github.com/FedericoTorres233/gokeys
+wget -qO- https://github.com/FedericoTorres233/gokeys/releases/download/v0.1.0/gokeys.tar.gz | gzip -d | tar xvfz - && cd ./bin
 ```
 
 Done! You can start using it:
@@ -62,7 +62,7 @@ go mod tidy
 Next, build the project from source. Be sure you have the `make` command installed:
 
 ```
-make build
+make
 ```
 
 Done! You can start using it:

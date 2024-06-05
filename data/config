@@ -1,0 +1,2 @@
+temporary_db=/tmp/gokeys.decrypted.db
+encrypted_db=./bin/passwd.db

@@ -22,7 +22,9 @@ format:
 release:
 	@echo "Generating a new release!"
 	$(MAKE) build-app
-	tar cvf - bin/gokeys | gzip > gokeys.tar.gz
+	rm -rf /tmp/gokeys-release && mkdir /tmp/gokeys-release
+	cp -r ./bin/gokeys ./data /tmp/gokeys-release
+	tar cvf - -C /tmp gokeys-release | gzip > ./bin/gokeys-release.tar.gz
 
 build:
 	@echo "Building application in dev mode!"

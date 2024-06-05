@@ -37,7 +37,7 @@
 The easiest way to start using GoKeys is to get the latest binary from the github repository.
 
 ```bash
-wget -qO- https://github.com/FedericoTorres233/gokeys/releases/download/v0.1.0/gokeys.tar.gz | gzip -d | tar xvfz - && cd ./bin
+wget -qO- https://github.com/FedericoTorres233/gokeys/releases/download/v0.1.0/gokeys.tar.gz | gzip -d | tar xvfz -
 ```
 
 Done! You can start using it:

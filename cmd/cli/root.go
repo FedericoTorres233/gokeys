@@ -20,8 +20,14 @@ var (
 var rootCmd = &cobra.Command{
 	Use:   "gokeys",
 	Short: "Simple password/key manager written in Go",
-	Long:  `Simple password/key manager written in Go. To start using it, first run the command using the --install flag, which creates the key database`,
+	Long:  `Simple password/key manager written in Go. To start using it, first run the command using the --install flag, which generates an encrypted database`,
 	Run: func(cmd *cobra.Command, args []string) {
+
+		// Load ascii logo
+		ascii_art, _ := os.ReadFile("cmd/cli/_asciiart.txt")
+		fmt.Println(string(ascii_art))
+		fmt.Println("Welcome to gokeys!")
+
 		if installed {
 			fmt.Println("Performing installation of GoKeys...")
 			start.Install()

@@ -30,6 +30,7 @@
 - Tests
 - Reorganise folders and files
 - Select database location
+- More output
 
 ## ⚙️ Installation
 

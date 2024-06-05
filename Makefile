@@ -1,6 +1,3 @@
-# Set default values for MODE
-MODE ?= development
-
 # Default target
 all: build
 
@@ -24,12 +21,12 @@ format:
 
 release:
 	@echo "Generating a new release!"
-	$(MAKE) MODE=production build-app
+	$(MAKE) build-app
 	tar cvf - bin/gokeys | gzip > gokeys.tar.gz
 
 build:
 	@echo "Building application in dev mode!"
-	$(MAKE) MODE=development build-app
+	$(MAKE) build-app
 
 clean:
 	@echo "Cleaning up!"

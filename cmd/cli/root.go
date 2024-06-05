@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/start"
 	"github.com/federicotorres233/gokeys/internal/types"
+	"github.com/federicotorres233/gokeys/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -24,7 +26,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// Load ascii logo
-		ascii_art, _ := os.ReadFile("cmd/cli/_asciiart.txt")
+		ascii_art, _ := os.ReadFile(filepath.Join(utils.GetBaseDir(), "data", "_asciiart.txt"))
 		fmt.Println(string(ascii_art))
 		fmt.Println("Welcome to gokeys!")
 

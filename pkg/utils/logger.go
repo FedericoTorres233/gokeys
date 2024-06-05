@@ -1,25 +1,18 @@
 package utils
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
-
 )
 
 func SetupLogger() {
-	// Get the $HOME
-	home, err := GetUserHome()
-	if err != nil {
-		fmt.Println("Could not set the log directory")
-		os.Exit(1)
-	}
-
+	// Get the Base dir
+	home := GetBaseDir()
+	dir := filepath.Join(home, "logs")
+	
 	// Create the directory if it doesn't exist
-	dir := filepath.Join(home, ".cache", "gokeys", "logs")
-
-	err = os.MkdirAll(dir, 0o744)
+	err := os.MkdirAll(dir, 0o744)
 	if err != nil {
 		log.Fatal(err)
 	}

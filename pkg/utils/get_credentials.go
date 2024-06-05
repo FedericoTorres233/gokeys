@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/base64"
 	"os"
+	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/types"
 )
@@ -29,7 +30,7 @@ func GetAllCredentials() (types.Credentials, error) {
 }
 
 func GetSalt(a *[]byte) error {
-	salt, err := os.ReadFile("bin/salt")
+	salt, err := os.ReadFile(filepath.Join(GetBaseDir(), "keys", "salt"))
 	if err != nil {
 		return err
 	}
@@ -43,7 +44,7 @@ func GetSalt(a *[]byte) error {
 }
 
 func GetKey(a *[]byte) error {
-	key, err := os.ReadFile("bin/key")
+	key, err := os.ReadFile(filepath.Join(GetBaseDir(), "keys", "key"))
 	if err != nil {
 		return err
 	}
@@ -57,7 +58,11 @@ func GetKey(a *[]byte) error {
 }
 
 func GetEncryptedDB(a *[]byte) error {
-	db_encrypted, err := os.ReadFile("bin/passwd.db")
+
+	// Get default filepaths for databases
+	def := LoadConfigs()
+	enc_db := filepath.Join(GetBaseDir(), def["encrypted_db"])
+	db_encrypted, err := os.ReadFile(enc_db)
 	if err != nil {
 		return err
 	}

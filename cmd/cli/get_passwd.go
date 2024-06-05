@@ -3,6 +3,7 @@ package cli
 import (
 	"fmt"
 	"log"
+	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
 	"github.com/federicotorres233/gokeys/pkg/utils"
@@ -18,7 +19,9 @@ var getCmd = &cobra.Command{
 		def := utils.LoadConfigs()
 
 		// Get password from password manager
-		pm := manager.NewPasswordManager(def["temporary_db"], def["encrypted_db"])
+		enc_db := filepath.Join(utils.GetBaseDir(), def["encrypted_db"])
+		tmp_db := def["temporary_db"]
+		pm := manager.NewPasswordManager(tmp_db, enc_db)
 		err := pm.GetPassword(&record)
 		if err != nil {
 			log.Println("[ERROR] ", err)

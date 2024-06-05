@@ -2,6 +2,7 @@ package start
 
 import (
 	"log"
+	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/pkg/utils"
 )
@@ -20,9 +21,13 @@ func Install() {
 		log.Println("[ERROR] ", err)
 	}
 
-	// Set up DB & get default configs
+	// Get default filepaths for databases
 	def := utils.LoadConfigs()
-	err = setupDB(key, def["temporary_db"], def["encrypted_db"])
+	enc_db := filepath.Join(utils.GetBaseDir(), def["encrypted_db"])
+	tmp_db := def["temporary_db"]
+
+	// Set up db
+	err = setupDB(key, tmp_db, enc_db)
 	if err != nil {
 		log.Println("[ERROR] ", err)
 	}

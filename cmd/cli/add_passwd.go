@@ -3,6 +3,7 @@ package cli
 import (
 	"fmt"
 	"log"
+	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
 	"github.com/federicotorres233/gokeys/pkg/utils"
@@ -18,7 +19,9 @@ var addCmd = &cobra.Command{
 		def := utils.LoadConfigs()
 
 		// Get password from password manager
-		pm := manager.NewPasswordManager(def["temporary_db"], def["encrypted_db"])
+		enc_db := filepath.Join(utils.GetBaseDir(), def["encrypted_db"])
+		tmp_db := def["temporary_db"]
+		pm := manager.NewPasswordManager(tmp_db, enc_db)
 
 		// Read password from stdin
 		p, err := utils.ReadPassword()
@@ -57,7 +60,7 @@ func init() {
 	addCmd.Flags().StringVarP(&record.Notes, "email", "e", "", "add email")
 	addCmd.Flags().StringVarP(&record.Tag, "tag", "t", "", "add a tag")
 	addCmd.Flags().StringVar(&record.Url, "url", "", "add url")
-	addCmd.Flags().BoolVarP(&record.Status, "status", "s",false, "set status")
+	addCmd.Flags().BoolVarP(&record.Status, "status", "s", false, "set status")
 	addCmd.Flags().BoolVar(&record.Favorite, "favorite", false, "set as favorite")
 
 	// Mark required flags

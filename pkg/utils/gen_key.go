@@ -5,6 +5,7 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"os"
+	"path/filepath"
 
 	"golang.org/x/crypto/pbkdf2"
 )
@@ -16,19 +17,25 @@ func GenerateKey(master string) ([]byte, error) {
 		return nil, err
 	}
 
+	// Create the directory if it doesn't exist
+	err = os.MkdirAll(filepath.Join(GetBaseDir(), "keys"), 0o744)
+	if err != nil {
+		return nil, err
+	}
+
 	// Generate key
 	key := pbkdf2.Key([]byte(master), salt, 4096, 32, sha256.New)
 
 	// Save salt
 	salt_encoded := base64.StdEncoding.EncodeToString(salt)
-	err = os.WriteFile("bin/salt", []byte(salt_encoded), 0o644)
+	err = os.WriteFile(filepath.Join(GetBaseDir(), "keys", "salt"), []byte(salt_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}
 
 	// Save key
 	key_encoded := base64.StdEncoding.EncodeToString(key)
-	err = os.WriteFile("bin/key", []byte(key_encoded), 0o644)
+	err = os.WriteFile(filepath.Join(GetBaseDir(), "keys", "key"), []byte(key_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}

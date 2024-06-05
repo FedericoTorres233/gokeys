@@ -3,12 +3,13 @@ package utils
 import (
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
 func LoadConfigs() map[string]string {
 	// Specify the path to the file you want to load
-	filePath := "bin/config"
+	filePath := filepath.Join(GetBaseDir(), "data", "config")
 
 	// Read the contents of the file
 	content, err := os.ReadFile(filePath)

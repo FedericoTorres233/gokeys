@@ -7,8 +7,6 @@
 *.dll
 *.so
 *.dylib
-bin/
-keys/
 
 # Test binary, built with `go test -c`
 *.test
@@ -27,4 +25,9 @@ go.work
 .config
 .replit
 replit.nix
+
+# Env variables
 .env
+bin/
+keys/
+logs/

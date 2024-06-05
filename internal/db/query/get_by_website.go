@@ -11,7 +11,7 @@ import (
 func QueryByWebsite(db *sql.DB, record *types.Record) error {
 	var id int
 
-	querySQL := `SELECT id, password, website, username FROM gokeys WHERE website = ?`
+	querySQL := `SELECT id, password, website, username, notes, tag, url, favorite, status FROM gokeys WHERE website = ?`
 	rows, err := db.Query(querySQL, record.Website)
 	if err != nil {
 		return err
@@ -20,7 +20,17 @@ func QueryByWebsite(db *sql.DB, record *types.Record) error {
 
 	// fmt.Printf("Results for website: %s\n", record.Website)
 	for rows.Next() {
-		err = rows.Scan(&id, &record.Password, &record.Website, &record.Username)
+		err = rows.Scan(
+			&id,
+			&record.Password,
+			&record.Website,
+			&record.Username,
+			&record.Notes,
+			&record.Tag,
+			&record.Url,
+			&record.Favorite,
+			&record.Status,
+		)
 		if err != nil {
 			panic(err)
 		}

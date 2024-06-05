@@ -24,7 +24,12 @@ func setupDB(key []byte, tmpdb string, encdb string) error {
         "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         "website" TEXT NOT NULL UNIQUE,
         "password" TEXT NOT NULL,
-        "username" TEXT
+        "username" TEXT,
+		"notes" TEXT,
+		"tag" TEXT,
+		"url" TEXT,
+		"favorite" BOOL,
+		"status" BOOL
     );`
 	_, err = db.Exec(createTable)
 	if err != nil {

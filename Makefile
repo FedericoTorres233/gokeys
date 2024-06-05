@@ -34,3 +34,4 @@ build:
 clean:
 	@echo "Cleaning up!"
 	rm -rf ./bin
+	rm -rf ./keys

@@ -7,7 +7,7 @@ import (
 
 	"github.com/federicotorres233/gokeys/internal/db"
 	"github.com/federicotorres233/gokeys/internal/types"
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/pkg/crypto"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -15,7 +15,7 @@ import (
 func (pm *PasswordManager) GetPassword(record *types.Record) error {
 
 	// Decrypt database
-	err := utils.DbDecrypt(pm.tmpdb)
+	err := crypto.DbDecrypt(pm.tmpdb)
 	if err != nil {
 		return err
 	}

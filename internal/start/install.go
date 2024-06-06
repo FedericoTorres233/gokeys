@@ -4,6 +4,7 @@ import (
 	"log"
 	"path/filepath"
 
+	"github.com/federicotorres233/gokeys/pkg/crypto"
 	"github.com/federicotorres233/gokeys/pkg/utils"
 )
 
@@ -16,7 +17,7 @@ func Install() {
 	}
 
 	// Generate key & salt
-	key, err := utils.GenerateKey(master)
+	key, err := crypto.GenerateKey(master)
 	if err != nil {
 		log.Println("[ERROR]", err)
 	}

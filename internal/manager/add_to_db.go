@@ -6,7 +6,7 @@ import (
 
 	"github.com/federicotorres233/gokeys/internal/db/query"
 	"github.com/federicotorres233/gokeys/internal/types"
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/pkg/crypto"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -14,7 +14,7 @@ import (
 func (pm *PasswordManager) AddPassword(record *types.Record) error {
 
 	// Decrypt database
-	err := utils.DbDecrypt(pm.tmpdb)
+	err := crypto.DbDecrypt(pm.tmpdb)
 	if err != nil {
 		return err
 	}
@@ -35,8 +35,8 @@ func (pm *PasswordManager) AddPassword(record *types.Record) error {
 
 	// Copy an encrypted version of the database
 	key := make([]byte, 32)
-	utils.GetKey(&key)
-	err = utils.DbEncrypt(key, pm.encdb, pm.tmpdb)
+	crypto.GetKey(&key)
+	err = crypto.DbEncrypt(key, pm.encdb, pm.tmpdb)
 	if err != nil {
 		return err
 	}

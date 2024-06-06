@@ -12,13 +12,13 @@ func Install() {
 	// Read master password
 	master, err := utils.ReadPassword()
 	if err != nil {
-		log.Println("[ERROR] ", err)
+		log.Println("[ERROR]", err)
 	}
 
 	// Generate key & salt
 	key, err := utils.GenerateKey(master)
 	if err != nil {
-		log.Println("[ERROR] ", err)
+		log.Println("[ERROR]", err)
 	}
 
 	// Get default filepaths for databases
@@ -29,6 +29,6 @@ func Install() {
 	// Set up db
 	err = setupDB(key, tmp_db, enc_db)
 	if err != nil {
-		log.Println("[ERROR] ", err)
+		log.Println("[ERROR]", err)
 	}
 }

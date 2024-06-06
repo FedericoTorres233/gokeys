@@ -24,7 +24,7 @@ var getCmd = &cobra.Command{
 		pm := manager.NewPasswordManager(tmp_db, enc_db)
 		err := pm.GetPassword(&record)
 		if err != nil {
-			log.Println("[ERROR] ", err)
+			log.Println("[ERROR]", err)
 			return
 		}
 

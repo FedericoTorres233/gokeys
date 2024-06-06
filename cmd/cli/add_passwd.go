@@ -26,7 +26,7 @@ var addCmd = &cobra.Command{
 		// Read password from stdin
 		p, err := utils.ReadPassword()
 		if err != nil {
-			log.Println("[ERROR] ", err)
+			log.Println("[ERROR]", err)
 			return
 		}
 		record.Password = p
@@ -34,7 +34,7 @@ var addCmd = &cobra.Command{
 		// Add password to db
 		err = pm.AddPassword(&record)
 		if err != nil {
-			log.Println("[ERROR] ", err)
+			log.Println("[ERROR]", err)
 			return
 		}
 

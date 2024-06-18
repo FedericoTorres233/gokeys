@@ -29,5 +29,4 @@ replit.nix
 # Env variables
 .env
 bin/
-keys/
-logs/
+tmp/

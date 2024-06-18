@@ -31,6 +31,6 @@ build:
 	$(MAKE) build-app
 
 clean:
-	@echo "Cleaning up!"
+	@echo "Cleaning up keys and logs!"
 	rm -rf ./bin
-	rm -rf ./keys
+	rm -rf ./tmp

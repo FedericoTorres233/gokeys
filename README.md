@@ -1,11 +1,11 @@
-<!--<p align="center">
+<p align="center">
   <a href="https://github.com/federicotorres233">
     <picture>
-      <source height="125" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gofiber/docs/master/static/img/logo-dark.svg">
-      <img height="125" alt="Fiber" src="https://raw.githubusercontent.com/gofiber/docs/master/static/img/logo.svg">
+      <source height="125" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FedericoTorres233/gokeys/main/public/logo.png">
+      <img height="125" alt="Fiber" src="https://raw.githubusercontent.com/FedericoTorres233/gokeys/main/public/logo.png">
     </picture>
   </a>
-  <br>-->
+  <br>
 <p align="center">
   <em><b>GoKeys</b> is a password database manager for the terminal written in Go and built using <a href="https://github.com/spf13/cobra">Cobra</a>, a library for creating CLI applications.</em>
 </p>

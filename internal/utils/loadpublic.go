@@ -38,3 +38,8 @@ func LoadConfigs() map[string]string {
 
 	return data
 }
+
+func LoadAsciiArt() string {
+	ascii_art, _ := os.ReadFile(filepath.Join(".", "public", "_asciiart.txt"))
+	return string(ascii_art)
+}

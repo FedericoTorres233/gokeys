@@ -3,7 +3,7 @@ all: build
 
 build-app:
 	@echo "Building application!"
-	go build -o bin/gokeys cmd/main.go
+	go build -o bin/gokeys main.go
 
 run: build
 	./bin/gokeys

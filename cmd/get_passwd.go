@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/manager"
@@ -24,7 +23,7 @@ var getCmd = &cobra.Command{
 		pm := manager.NewPasswordManager(tmp_db, enc_db)
 		err := pm.GetPassword(&record)
 		if err != nil {
-			log.Println("[ERROR]", err)
+			utils.LogError(err)
 			return
 		}
 
@@ -32,7 +31,7 @@ var getCmd = &cobra.Command{
 		if setClipboard {
 			fmt.Println("Copied to clipboard!")
 			err := utils.SetClip(record.Password)
-			log.Println("[ERROR] Could not set clipboard.", err)
+			utils.LogError(err)
 		}
 
 		// Output password

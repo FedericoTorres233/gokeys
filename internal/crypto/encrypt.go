@@ -5,8 +5,9 @@ import (
 	"crypto/cipher"
 	"crypto/rand"
 	"encoding/base64"
-	"log"
 	"os"
+
+	"github.com/federicotorres233/gokeys/internal/utils"
 )
 
 func encryptFile(key []byte, inFile string, outFile string) error {
@@ -50,6 +51,6 @@ func DbEncrypt(key []byte, encdb string, tmpdb string) error {
 		return err
 	}
 
-	log.Println("[INFO] Database encrypted using key: ", key)
+	utils.LogInfo("Database encrypted using generated key")
 	return nil
 }

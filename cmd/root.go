@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/federicotorres233/gokeys/internal/setup"
@@ -43,7 +42,7 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
-		log.Println("[ERROR]", err)
+		utils.LogError(err)
 		os.Exit(1)
 	}
 }

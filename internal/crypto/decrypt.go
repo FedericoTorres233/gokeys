@@ -3,8 +3,9 @@ package crypto
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"log"
 	"os"
+
+	"github.com/federicotorres233/gokeys/internal/utils"
 )
 
 func DbDecrypt(tmpdb string) error {
@@ -20,7 +21,7 @@ func DbDecrypt(tmpdb string) error {
 		return err
 	}
 
-	log.Println("[INFO] Database decrypted and stored at ", tmpdb)
+	utils.LogInfo("Database decrypted and stored at" + tmpdb)
 	return nil
 }
 

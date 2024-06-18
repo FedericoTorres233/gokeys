@@ -2,10 +2,10 @@ package setup
 
 import (
 	"database/sql"
-	"log"
 	"os"
 
 	"github.com/federicotorres233/gokeys/internal/crypto"
+	"github.com/federicotorres233/gokeys/internal/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -36,10 +36,10 @@ func setupDB(key []byte, tmpdb string, encdb string) error {
 		return err
 	}
 
-	log.Println("[INFO] DB set up successfully at", tmpdb)
+	utils.LogInfo("DB set up successfully at" + tmpdb)
 
 	// DB encryption
-	log.Println("[INFO] Encrypting database")
+	utils.LogInfo("Encrypting database...")
 	err = crypto.DbEncrypt(key, encdb, tmpdb)
 	if err != nil {
 		return err

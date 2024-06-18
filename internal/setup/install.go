@@ -1,7 +1,6 @@
 package setup
 
 import (
-	"log"
 	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/crypto"
@@ -13,13 +12,13 @@ func Install() {
 	// Read master password
 	master, err := utils.ReadPassword()
 	if err != nil {
-		log.Println("[ERROR]", err)
+		utils.LogError(err)
 	}
 
 	// Generate key & salt
 	key, err := crypto.GenerateKey(master)
 	if err != nil {
-		log.Println("[ERROR]", err)
+		utils.LogError(err)
 	}
 
 	// Get default filepaths for databases
@@ -30,6 +29,6 @@ func Install() {
 	// Set up db
 	err = setupDB(key, tmp_db, enc_db)
 	if err != nil {
-		log.Println("[ERROR]", err)
+		utils.LogError(err)
 	}
 }

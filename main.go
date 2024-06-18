@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
-	utils.SetupLogger()
+
+	_ = utils.NewLogger("tmp/logs", "gokeys.log")
+
 	cmd.Execute()
 }

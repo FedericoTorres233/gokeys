@@ -23,7 +23,7 @@ release:
 	@echo "Generating a new release!"
 	$(MAKE) build-app
 	rm -rf /tmp/gokeys-release && mkdir /tmp/gokeys-release
-	cp -r ./bin/gokeys ./data /tmp/gokeys-release
+	cp -r ./bin/gokeys ./public /tmp/gokeys-release
 	tar cvf - -C /tmp gokeys-release | gzip > ./bin/gokeys-release.tar.gz
 
 build:

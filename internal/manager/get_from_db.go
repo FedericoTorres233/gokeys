@@ -5,9 +5,9 @@ import (
 	"errors"
 	"os"
 
-	"github.com/federicotorres233/gokeys/internal/db"
+	"github.com/federicotorres233/gokeys/internal/database"
 	"github.com/federicotorres233/gokeys/internal/types"
-	"github.com/federicotorres233/gokeys/pkg/crypto"
+	"github.com/federicotorres233/gokeys/internal/crypto"
 	_ "github.com/mattn/go-sqlite3"
 )
 

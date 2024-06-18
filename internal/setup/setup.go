@@ -1,11 +1,11 @@
-package start
+package setup
 
 import (
 	"database/sql"
 	"log"
 	"os"
 
-	"github.com/federicotorres233/gokeys/pkg/crypto"
+	"github.com/federicotorres233/gokeys/internal/crypto"
 	_ "github.com/mattn/go-sqlite3"
 )
 

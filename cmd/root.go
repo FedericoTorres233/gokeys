@@ -1,4 +1,4 @@
-package cli
+package cmd
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/federicotorres233/gokeys/internal/start"
+	"github.com/federicotorres233/gokeys/internal/setup"
 	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/spf13/cobra"
 )
@@ -31,7 +31,7 @@ var rootCmd = &cobra.Command{
 
 		if installed {
 			fmt.Println("Performing installation of GoKeys...")
-			start.Install()
+			setup.Install()
 			return
 		} else {
 			cmd.Help()

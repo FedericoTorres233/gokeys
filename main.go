@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/federicotorres233/gokeys/cmd/cli"
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/cmd"
+	"github.com/federicotorres233/gokeys/internal/utils"
 )
 
 func main() {
 	utils.SetupLogger()
-	cli.Execute()
+	cmd.Execute()
 }

@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/internal/utils"
 	"golang.org/x/crypto/pbkdf2"
 )
 

@@ -1,11 +1,11 @@
-package start
+package setup
 
 import (
 	"log"
 	"path/filepath"
 
-	"github.com/federicotorres233/gokeys/pkg/crypto"
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/internal/crypto"
+	"github.com/federicotorres233/gokeys/internal/utils"
 )
 
 func Install() {

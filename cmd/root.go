@@ -25,7 +25,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// Load ascii logo
-		ascii_art, _ := os.ReadFile(filepath.Join(".", "data", "_asciiart.txt"))
+		ascii_art, _ := os.ReadFile(filepath.Join(".", "public", "_asciiart.txt"))
 		fmt.Println(string(ascii_art))
 		fmt.Println("Welcome to gokeys!")
 

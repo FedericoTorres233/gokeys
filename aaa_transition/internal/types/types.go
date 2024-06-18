@@ -10,3 +10,9 @@ type Record struct {
 	Favorite bool
 	Status   bool
 }
+
+type Credentials struct {
+	EncryptedDB []byte
+	Key         []byte
+	Salt        []byte
+}

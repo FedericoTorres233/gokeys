@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/federicotorres233/gokeys/internal/types"
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/internal/utils"
 )
 
 func GetAllCredentials() (types.Credentials, error) {
@@ -31,7 +31,7 @@ func GetAllCredentials() (types.Credentials, error) {
 }
 
 func GetSalt(a *[]byte) error {
-	salt, err := os.ReadFile(filepath.Join(utils.GetBaseDir(), "keys", "salt"))
+	salt, err := os.ReadFile(filepath.Join(utils.GetBaseDir(), "tmp/keys", "salt"))
 	if err != nil {
 		return err
 	}
@@ -45,7 +45,7 @@ func GetSalt(a *[]byte) error {
 }
 
 func GetKey(a *[]byte) error {
-	key, err := os.ReadFile(filepath.Join(utils.GetBaseDir(), "keys", "key"))
+	key, err := os.ReadFile(filepath.Join(utils.GetBaseDir(), "tmp/keys", "key"))
 	if err != nil {
 		return err
 	}

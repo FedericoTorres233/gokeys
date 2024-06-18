@@ -9,7 +9,7 @@ import (
 
 func LoadConfigs() map[string]string {
 	// Specify the path to the file you want to load
-	filePath := filepath.Join(".", "data", "config")
+	filePath := filepath.Join(".", "public", "config")
 
 	// Read the contents of the file
 	content, err := os.ReadFile(filePath)

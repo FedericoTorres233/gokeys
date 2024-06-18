@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"os"
 
-	"github.com/federicotorres233/gokeys/internal/db/query"
+	"github.com/federicotorres233/gokeys/internal/database/query"
 	"github.com/federicotorres233/gokeys/internal/types"
-	"github.com/federicotorres233/gokeys/pkg/crypto"
+	"github.com/federicotorres233/gokeys/internal/crypto"
 	_ "github.com/mattn/go-sqlite3"
 )
 

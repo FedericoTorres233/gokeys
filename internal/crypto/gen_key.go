@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/federicotorres233/gokeys/pkg/utils"
+	"github.com/federicotorres233/gokeys/internal/utils"
 	"golang.org/x/crypto/pbkdf2"
 )
 
@@ -19,7 +19,7 @@ func GenerateKey(master string) ([]byte, error) {
 	}
 
 	// Create the directory if it doesn't exist
-	err = os.MkdirAll(filepath.Join(utils.GetBaseDir(), "keys"), 0o744)
+	err = os.MkdirAll(filepath.Join(utils.GetBaseDir(), "tmp/keys"), 0o744)
 	if err != nil {
 		return nil, err
 	}
@@ -29,14 +29,14 @@ func GenerateKey(master string) ([]byte, error) {
 
 	// Save salt
 	salt_encoded := base64.StdEncoding.EncodeToString(salt)
-	err = os.WriteFile(filepath.Join(utils.GetBaseDir(), "keys", "salt"), []byte(salt_encoded), 0o644)
+	err = os.WriteFile(filepath.Join(utils.GetBaseDir(), "tmp/keys", "salt"), []byte(salt_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}
 
 	// Save key
 	key_encoded := base64.StdEncoding.EncodeToString(key)
-	err = os.WriteFile(filepath.Join(utils.GetBaseDir(), "keys", "key"), []byte(key_encoded), 0o644)
+	err = os.WriteFile(filepath.Join(utils.GetBaseDir(), "tmp/keys", "key"), []byte(key_encoded), 0o644)
 	if err != nil {
 		return nil, err
 	}

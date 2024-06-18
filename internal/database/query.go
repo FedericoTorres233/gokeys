@@ -3,7 +3,7 @@ package db
 import (
 	"database/sql"
 
-	"github.com/federicotorres233/gokeys/internal/db/query"
+	"github.com/federicotorres233/gokeys/internal/database/query"
 	"github.com/federicotorres233/gokeys/internal/types"
 )
 

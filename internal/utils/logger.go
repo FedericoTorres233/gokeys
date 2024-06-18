@@ -9,7 +9,7 @@ import (
 func SetupLogger() {
 	// Get the Base dir
 	home := GetBaseDir()
-	dir := filepath.Join(home, "logs")
+	dir := filepath.Join(home, "tmp/logs")
 	
 	// Create the directory if it doesn't exist
 	err := os.MkdirAll(dir, 0o744)

@@ -3,7 +3,7 @@ all: build
 
 build-app:
 	@echo "Building application!"
-	go build -o bin/gokeys cmd/main.go
+	go build -o bin/gokeys main.go
 
 run: build
 	./bin/gokeys
@@ -23,7 +23,7 @@ release:
 	@echo "Generating a new release!"
 	$(MAKE) build-app
 	rm -rf /tmp/gokeys-release && mkdir /tmp/gokeys-release
-	cp -r ./bin/gokeys ./data /tmp/gokeys-release
+	cp -r ./bin/gokeys ./public /tmp/gokeys-release
 	tar cvf - -C /tmp gokeys-release | gzip > ./bin/gokeys-release.tar.gz
 
 build:
@@ -31,6 +31,6 @@ build:
 	$(MAKE) build-app
 
 clean:
-	@echo "Cleaning up!"
+	@echo "Cleaning up keys and logs!"
 	rm -rf ./bin
-	rm -rf ./keys
+	rm -rf ./tmp

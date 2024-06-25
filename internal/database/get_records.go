@@ -1,18 +1,20 @@
-package query
+package db
 
 import (
 	"database/sql"
+	"fmt"
 
 	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 // Function to query and print rows for a specific website
-func QueryByWebsite(db *sql.DB, record *types.Record) error {
+func GetRecords(db *sql.DB, record *types.Record) error {
 	var id int
 
-	querySQL := `SELECT id, password, website, username, notes, tag, url, favorite, status FROM gokeys WHERE website = ?`
-	rows, err := db.Query(querySQL, record.Website)
+	whereSQL := fmt.Sprintf("WHERE website = '%s' OR username = '%s'", record.Website, record.Username)
+	querySQL := fmt.Sprintf("SELECT id, password, website, username, notes, tag, url, favorite, status FROM gokeys %s;", whereSQL)
+	rows, err := db.Query(querySQL)
 	if err != nil {
 		return err
 	}

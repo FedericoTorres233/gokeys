@@ -5,9 +5,9 @@ import (
 	"errors"
 	"os"
 
-	"github.com/federicotorres233/gokeys/internal/database"
-	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/federicotorres233/gokeys/internal/crypto"
+	db "github.com/federicotorres233/gokeys/internal/database"
+	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -28,15 +28,8 @@ func (pm *PasswordManager) GetPassword(record *types.Record) error {
 	defer os.Remove(pm.tmpdb)
 	defer database.Close()
 
-	// Open a connection to the SQLite database
-	database, err = sql.Open("sqlite3", pm.tmpdb)
-	if err != nil {
-		return err
-	}
-	defer database.Close()
-
 	// Get the id depending on the site (passing the pointer to record)
-	err = db.GetRecordByWebsite(database, record)
+	err = db.GetRecords(database, record)
 	if err != nil {
 		return err
 	}

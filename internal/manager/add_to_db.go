@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"os"
 
-	"github.com/federicotorres233/gokeys/internal/database/query"
-	"github.com/federicotorres233/gokeys/internal/types"
 	"github.com/federicotorres233/gokeys/internal/crypto"
+	db "github.com/federicotorres233/gokeys/internal/database"
+	"github.com/federicotorres233/gokeys/internal/types"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -28,7 +28,7 @@ func (pm *PasswordManager) AddPassword(record *types.Record) error {
 	defer database.Close()
 
 	// Get the id depending on the site
-	err = query.AddRecord(database, record)
+	err = db.AddRecord(database, record)
 	if err != nil {
 		return err
 	}

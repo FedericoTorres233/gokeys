@@ -11,8 +11,15 @@ import (
 // Function to query and print rows for a specific website
 func GetRecords(db *sql.DB, record *types.Record) error {
 	var id int
+	var condSQL string
 
-	whereSQL := fmt.Sprintf("WHERE website = '%s' OR username = '%s'", record.Website, record.Username)
+	if record.Website == "" || record.Username == "" {
+		condSQL = "OR"
+	} else {
+		condSQL = "AND"
+	}
+
+	whereSQL := fmt.Sprintf("WHERE website = '%s' %s username = '%s'", record.Website, condSQL, record.Username)
 	querySQL := fmt.Sprintf("SELECT id, password, website, username, notes, tag, url, favorite, status FROM gokeys %s;", whereSQL)
 	rows, err := db.Query(querySQL)
 	if err != nil {

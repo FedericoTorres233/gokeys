@@ -45,7 +45,6 @@ var getCmd = &cobra.Command{
 			err := utils.SetClip(record.Password)
 			utils.LogError(err)
 		}
-		return
 
 	},
 }

@@ -22,6 +22,13 @@ var getAllCmd = &cobra.Command{
 		tmp_db := def["temporary_db"]
 		pm := manager.NewPasswordManager(tmp_db, enc_db)
 		records, err := pm.GetAllPasswords()
+		if len(records) == 0 {
+			fmt.Println("No passwords found!")
+			return
+		} else if err != nil {
+			utils.LogError(err)
+			return
+		}
 
 		// Format passwords
 		fmt.Println("")

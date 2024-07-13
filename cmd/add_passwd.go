@@ -22,16 +22,8 @@ var addCmd = &cobra.Command{
 		tmp_db := def["temporary_db"]
 		pm := manager.NewPasswordManager(tmp_db, enc_db)
 
-		// Read password from stdin
-		p, err := utils.ReadPassword()
-		if err != nil {
-			utils.LogError(err)
-			return
-		}
-		record.Password = p
-
 		// Add password to db
-		err = pm.AddPassword(&record)
+		err := pm.AddPassword(&record)
 		if err != nil {
 			utils.LogError(err)
 			return

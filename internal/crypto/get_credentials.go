@@ -45,15 +45,34 @@ func GetSalt(a *[]byte) error {
 }
 
 func GetKey(a *[]byte) error {
-	key, err := os.ReadFile(filepath.Join(utils.GetBaseDir(), "tmp/keys", "key"))
+	var b []byte
+	var salt []byte
+	key := os.Getenv("GOKEYS_KEY")
+
+	err := GetSalt(&salt)
 	if err != nil {
-		return err
+		utils.LogError(err)
 	}
 
-	*a, err = base64.StdEncoding.DecodeString(string(key))
+	if key == "" {
+		p, err := utils.ReadMasterPassword()
+		if err != nil {
+			utils.LogError(err)
+		}
+
+		k, err := GenerateKey(p, salt)
+		if err != nil {
+			utils.LogError(err)
+		}
+
+		key = k
+	}
+
+	b, err = base64.StdEncoding.DecodeString(key)
 	if err != nil {
 		return err
 	}
+	*a = b
 
 	return nil
 }

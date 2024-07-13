@@ -7,6 +7,7 @@ import (
 	"github.com/federicotorres233/gokeys/internal/crypto"
 	db "github.com/federicotorres233/gokeys/internal/database"
 	"github.com/federicotorres233/gokeys/internal/types"
+	"github.com/federicotorres233/gokeys/internal/utils"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -18,6 +19,14 @@ func (pm *PasswordManager) AddPassword(record *types.Record) error {
 	if err != nil {
 		return err
 	}
+
+	// Read password from stdin
+	p, err := utils.ReadPassword()
+	if err != nil {
+		utils.LogError(err)
+		return err
+	}
+	record.Password = p
 
 	// Open a connection to the SQLite database
 	database, err := sql.Open("sqlite3", pm.tmpdb)

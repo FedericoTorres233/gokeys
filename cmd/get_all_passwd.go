@@ -21,12 +21,14 @@ var getAllCmd = &cobra.Command{
 		enc_db := filepath.Join(utils.GetBaseDir(), def["encrypted_db"])
 		tmp_db := def["temporary_db"]
 		pm := manager.NewPasswordManager(tmp_db, enc_db)
+		
 		records, err := pm.GetAllPasswords()
+		if err != nil {
+			utils.LogError(err)
+			return
+		}
 		if len(records) == 0 {
 			fmt.Println("No passwords found!")
-			return
-		} else if err != nil {
-			utils.LogError(err)
 			return
 		}
 

@@ -2,7 +2,6 @@ package manager
 
 import (
 	"database/sql"
-	"errors"
 	"os"
 
 	"github.com/federicotorres233/gokeys/internal/crypto"
@@ -34,5 +33,5 @@ func (pm *PasswordManager) GetAllPasswords() ([]types.Record, error) {
 		return nil, err
 	}
 
-	return r, errors.New("sorry! password not found")
+	return r, nil
 }

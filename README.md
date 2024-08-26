@@ -19,17 +19,17 @@
 - ~~Remove logs && log everything to a logfile~~
 - ~~Use SQLite~~
 - ~~Don't echo passwords~~
-- Show all passwords
-- Add dockerfile
+- ~~Show all passwords~~
+- ~~Add dockerfile~~
 - Fancier terminal
 - Organize sensitive files and change permissions
-- Encrypt database
+- ~~Encrypt database~~
 - Concurrency for faster performance
 - Add more options
 - Get by other options
 - CRUD
 - Tests
-- Reorganise folders and files
+- ~~Reorganise folders and files~~
 - Select database location
 - More output
 
